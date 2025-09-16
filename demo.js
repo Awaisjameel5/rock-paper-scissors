@@ -18,12 +18,12 @@ const drawgame = () => {
 const showwinner = (userwin) => {
     if (userwin) {
         console.log("you win");
-        msg.innerText = "You win!";
+        msg.innerText = `You win! Your ${userchoice} beats ${compchoice}`;
         msg.style.backgroundColor = "green";
         userscore++;
     } else {
         console.log("you lose");
-        msg.innerText = "You lose!";
+        msg.innerText = `You lose! ${compchoice} beats Your ${userchoice}`;
         msg.style.backgroundColor = "red";
         compscore++;
     }
