@@ -17,23 +17,20 @@ const drawgame = () => {
 
 const showwinner = (userwin) => {
     if (userwin) {
-        console.log("you win");
-        msg.innerText = `You win! Your ${userchoice} beats ${compchoice}`;
+        msg.innerText = `You win!`;
         msg.style.backgroundColor = "green";
         userscore++;
+        userscorePara.innerText=userscore;
     } else {
-        console.log("you lose");
-        msg.innerText = `You lose! ${compchoice} beats Your ${userchoice}`;
+        msg.innerText = `You lose!`;
         msg.style.backgroundColor = "red";
         compscore++;
+        compscorePara.innerText=compscore;
     }
-    console.log("User:", userscore, "Comp:", compscore);
 };
 
 const playgame = (userchoice) => {
-    console.log("user choice =", userchoice);
     const compchoice = gencomputerchoice();
-    console.log("comp choice =", compchoice);
 
     if (userchoice === compchoice) {
         drawgame();
@@ -46,7 +43,7 @@ const playgame = (userchoice) => {
         } else {
             userwin = compchoice === "rock" ? false : true;
         }
-        showwinner(userwin); // ✅ call the function here
+        showwinner(userwin); 
     }
 };
 
@@ -56,3 +53,6 @@ choices.forEach((choice) => {
         playgame(userchoice);
     });
 });
+
+const userscorePara= document.querySelector("#user-score");
+const compscorePara=document.querySelector("#comp-score");
